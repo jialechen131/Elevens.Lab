@@ -27,7 +27,7 @@ public class ElevensBoard extends Board {
      * The values of the cards for this game to be sent to the deck.
      */
     private static final int[] POINT_VALUES =
-            {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
+            {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 
     /**
      * Flag used to control debugging print statements.
@@ -55,20 +55,32 @@ public class ElevensBoard extends Board {
     public boolean isLegal(List<Integer> selectedCards) {
 
         int amount = selectedCards.size();
-
-        if (amount <= 2 && cardAt(selectedCards.get(0)).pointValue() + cardAt(selectedCards.get(1)).pointValue() == 11)
+       
+        if (amount == 2 && cardAt(selectedCards.get(0)).pointValue() + cardAt(selectedCards.get(1)).pointValue() == 11)
         {
             return true;
         }
-        else if (amount <= 3 && cardAt(selectedCards.get(0)).pointValue() == 11 && cardAt(selectedCards.get(1)).pointValue() == 12 && cardAt(selectedCards.get(2)).pointValue() == 13)
+        else if (amount == 3 && cardAt(selectedCards.get(0)).pointValue() == 11 && cardAt(selectedCards.get(1)).pointValue() == 12 && cardAt(selectedCards.get(2)).pointValue() == 13)
         {
             return true;
         }
-        else if (amount <= 3 && cardAt(selectedCards.get(0)).pointValue() == 12 && cardAt(selectedCards.get(1)).pointValue() == 13 && cardAt(selectedCards.get(2)).pointValue() == 11)
+        else if (amount == 3 && cardAt(selectedCards.get(0)).pointValue() == 11 && cardAt(selectedCards.get(1)).pointValue() == 13 && cardAt(selectedCards.get(2)).pointValue() == 12)
         {
             return true;
         }
-        else if (amount <= 3 && cardAt(selectedCards.get(0)).pointValue() == 13 && cardAt(selectedCards.get(1)).pointValue() == 11 && cardAt(selectedCards.get(2)).pointValue() == 12)
+        else if (amount == 3 && cardAt(selectedCards.get(0)).pointValue() == 12 && cardAt(selectedCards.get(1)).pointValue() == 11 && cardAt(selectedCards.get(2)).pointValue() == 13)
+        {
+            return true;
+        }
+        else if (amount == 3 && cardAt(selectedCards.get(0)).pointValue() == 12 && cardAt(selectedCards.get(1)).pointValue() == 13 && cardAt(selectedCards.get(2)).pointValue() == 11)
+        {
+            return true;
+        }
+        else if (amount == 3 && cardAt(selectedCards.get(0)).pointValue() == 13 && cardAt(selectedCards.get(1)).pointValue() == 11 && cardAt(selectedCards.get(2)).pointValue() == 12)
+        {
+            return true;
+        }
+        else if (amount == 3 && cardAt(selectedCards.get(0)).pointValue() == 13 && cardAt(selectedCards.get(1)).pointValue() == 12 && cardAt(selectedCards.get(2)).pointValue() == 11)
         {
             return true;
         }
@@ -96,7 +108,12 @@ public class ElevensBoard extends Board {
                     selectedCards.clear();
                     selectedCards.add(i);
                     selectedCards.add(j);
+                    if(isLegal(selectedCards))
+                    {
+                        return true;
+                    }
                     selectedCards.add(k);
+
 
                     if (isLegal(selectedCards))
                     {
