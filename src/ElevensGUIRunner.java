@@ -1,5 +1,3 @@
-import sample.CardGameGUI;
-
 public class ElevensGUIRunner {
 
     /**
