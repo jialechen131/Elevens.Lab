@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
+
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
  */
@@ -152,25 +153,48 @@ public class ElevensBoard extends Board {
         return false;
     }
 
-  /*  public void playIfPossible() {
-        List<Card>boardList=new ArrayList<>(Arrays.asList(getCards()));
-        if(
+   public void playIfPossible() {
+       List<Integer> selectedCards = new ArrayList<>();
+       for (int i = 0; i < size(); i++) {
+           for (int j = i; j < size(); j++) {
+               for (int k = j; k < size(); k++) {
+                   selectedCards.clear();
+                  selectedCards.add(i);
+                   selectedCards.add(j);
+                   if (isLegal(selectedCards)) {
+                       replaceSelectedCards(selectedCards);
+                   }
+                   selectedCards.add(k);
 
+
+                   if (isLegal(selectedCards)) {
+                       replaceSelectedCards(selectedCards);
+                   }
+               }
+           }
+       }
     }
-
-    public boolean playPairSum11IfPossible() {
+/*
+    public List<Integer> findPairsum11(List<Integer> selectedCards)
+    {
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
-                if (.get(i) + selectedCards.get(j) == 11) {
-                    return true;
+                if (selectedCards.get(i) + selectedCards.get(j) == 11) {
+                    return (new ArrayList<>().add);
                 }
             }
         }
-        return false;
+        return new ArrayList<>();
     }
 
-    public boolean playJQKIfPossible() {
+
+    public void playPairSum11IfPossible() {
 
     }
-*/
+
+    public void playJQKIfPossible() {
+
+
+    }
+    */
 }
