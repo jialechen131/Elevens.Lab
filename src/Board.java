@@ -23,6 +23,10 @@ import java.util.ArrayList;
          */
         private static final boolean I_AM_DEBUGGING = false;
 
+        public Card[] getCards()
+        {
+            return this.cards;
+        }
         /**
          * Creates a new <code>Board</code> instance.
          * @param size the number of cards in the board

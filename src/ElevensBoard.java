@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -33,6 +34,7 @@ public class ElevensBoard extends Board {
      * Flag used to control debugging print statements.
      */
     private static final boolean I_AM_DEBUGGING = false;
+
 
 
     /**
@@ -149,14 +151,22 @@ public class ElevensBoard extends Board {
         }
         return false;
     }
-/*
-    public void playIfPossible() {
-        if(containsJQK())
+
+  /*  public void playIfPossible() {
+        List<Card>boardList=new ArrayList<>(Arrays.asList(getCards()));
+        if(
 
     }
 
     public boolean playPairSum11IfPossible() {
-
+        for (int i = 0; i < size(); i++) {
+            for (int j = 0; j < size(); j++) {
+                if (.get(i) + selectedCards.get(j) == 11) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public boolean playJQKIfPossible() {
