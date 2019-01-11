@@ -177,10 +177,13 @@ public class ElevensBoard extends Board {
 /*
     public List<Integer> findPairsum11(List<Integer> selectedCards)
     {
+        List<Integer> sth=new ArrayList<>();
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
                 if (selectedCards.get(i) + selectedCards.get(j) == 11) {
-                    return (new ArrayList<>().add);
+                    sth.add(selectedCards.get(i);
+                    sth.add(selectedCards.get(j));
+                    return sth;
                 }
             }
         }
@@ -189,6 +192,7 @@ public class ElevensBoard extends Board {
 
 
     public void playPairSum11IfPossible() {
+    
 
     }
 
@@ -196,5 +200,5 @@ public class ElevensBoard extends Board {
 
 
     }
-    */
+*/
 }
