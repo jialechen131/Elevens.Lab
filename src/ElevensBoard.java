@@ -153,7 +153,7 @@ public class ElevensBoard extends Board {
         return false;
     }
 
-   public void playIfPossible() {
+   public Boolean playIfPossible() {
        List<Integer> selectedCards = new ArrayList<>();
        for (int i = 0; i < size(); i++) {
            for (int j = i; j < size(); j++) {
@@ -163,25 +163,41 @@ public class ElevensBoard extends Board {
                    selectedCards.add(j);
                    if (isLegal(selectedCards)) {
                        replaceSelectedCards(selectedCards);
+                       return true;
                    }
                    selectedCards.add(k);
 
 
                    if (isLegal(selectedCards)) {
                        replaceSelectedCards(selectedCards);
+                       return true;
                    }
                }
            }
        }
+       return false;
     }
-/*
+
+    public boolean runGame()
+    {
+        while(playIfPossible())
+        {
+            playIfPossible();
+        }
+        if(getDeck().isEmpty())
+        {
+            return true;
+        }
+        return false;
+    }
+
     public List<Integer> findPairsum11(List<Integer> selectedCards)
     {
         List<Integer> sth=new ArrayList<>();
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
                 if (selectedCards.get(i) + selectedCards.get(j) == 11) {
-                    sth.add(selectedCards.get(i);
+                    sth.add(selectedCards.get(i));
                     sth.add(selectedCards.get(j));
                     return sth;
                 }
@@ -190,11 +206,9 @@ public class ElevensBoard extends Board {
         return new ArrayList<>();
     }
 
-
+/*
     public void playPairSum11IfPossible() {
-    
 
-    }
 
     public void playJQKIfPossible() {
 

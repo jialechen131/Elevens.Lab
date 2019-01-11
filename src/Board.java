@@ -44,7 +44,10 @@ import java.util.ArrayList;
             }
             dealMyCards();
         }
-
+        public Deck getDeck()
+        {
+            return deck;
+        }
         /**
          * Start a new game by shuffling the deck and
          * dealing some cards to this board.
